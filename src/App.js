@@ -1,16 +1,27 @@
 import React from "react";
 import "./App.css";
+import axios from "axios";
 
 class App extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {};
+    this.state = {
+      score: []
+    };
   }
+
+  getScores = () => {
+    axios("/score").then(response => {
+      this.setState({
+        score: response.data
+      });
+    });
+  };
 
   render() {
     return (
       <div className="App">
-        <div>big meme</div>
+        <div onClick={e => this.getScores()}>get all scores</div>
       </div>
     );
   }
