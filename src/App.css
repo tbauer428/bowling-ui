@@ -4,3 +4,9 @@
   font-size: calc(10px + 2vmin);
   color: white;
 }
+
+.Frame {
+  border: 0.75px solid white;
+  padding: 5px;
+  width: 200px;
+}
