@@ -14,7 +14,6 @@ class App extends React.Component {
 
   createGame = e => {
     axios.post("/games").then(response => {
-      console.log("gameId: ", response.data.id);
       this.setState({
         gameId: response.data.id
       });
@@ -22,11 +21,10 @@ class App extends React.Component {
   };
 
   createPlayer = async name => {
-    console.log(name);
     const res = await axios.post(`/games/addPlayer/${this.state.gameId}/`, {
       name
     });
-    console.log(res);
+
     const nextPlayerIndex = this.state.playersList.length;
     this.setState({
       playersList: [
